@@ -109,6 +109,7 @@ const PC: Record<NoteName, number> = {
   Bb: 10,
   B: 11,
   Cb: 11,
+  "B#": 0
 };
 
 const NATURAL_SHARPS: NoteName[] = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
@@ -120,7 +121,7 @@ const MINOR_STEPS = [2, 1, 2, 2, 1, 2, 2]; // natural minor (aeolian)
 const KEY_SIGNATURE_SPELLINGS: Record<NoteName, Partial<Record<number, NoteName>>> = {
   "Gb": {
     11: "Cb", // B vira Cb
-    4: "Fb",  // E vira Fb
+    4: "Fb", // E vira Fb
   },
   "Db": {
     11: "Cb",
@@ -142,7 +143,7 @@ const KEY_SIGNATURE_SPELLINGS: Record<NoteName, Partial<Record<number, NoteName>
     10: "A#",
     3: "D#",
     8: "G#",
-  },
+  }
 };
 
 function normalizePc(n: number) {

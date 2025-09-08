@@ -7,7 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 const NOTE_ORDER_SHARP = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const NOTE_ORDER_FLAT = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
 
-function noteToIndex(note) {
+function noteToIndex(note: string) {
   // Procura em ambos os arrays para garantir que encontra qualquer nota
   let idx = NOTE_ORDER_SHARP.indexOf(note);
   if (idx !== -1) return idx;
@@ -30,17 +30,17 @@ function noteToIndex(note) {
   return 0;
 }
 
-function preferSharps(tonic) {
+function preferSharps(tonic: string) {
   // Tons com bemol: F, Bb, Eb, Ab, Db, Gb, Cb
   return !["F", "Bb", "Eb", "Ab", "Db", "Gb", "Cb"].includes(tonic);
 }
 
-function indexToNote(idx, useSharps = true) {
+function indexToNote(idx: number, useSharps = true) {
   const arr = useSharps ? NOTE_ORDER_SHARP : NOTE_ORDER_FLAT;
   return arr[(idx + 12) % 12];
 }
 
-function transposeChordLabel(label, semitones, useSharps = true) {
+function transposeChordLabel(label: string, semitones: number, useSharps = true) {
 
   debugger;
   if (!label) return "";
